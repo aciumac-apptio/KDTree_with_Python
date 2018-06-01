@@ -56,10 +56,10 @@ class RectHV:
         self.ymax = ymax
 
     def contains_point(self, p: Point2D):
-        return self.xmax >= p.x >= self.xmin \
-               and self.ymax >= p.y >= self.ymin
+        return p.x >= self.xmin and p.x <= self.xmax \
+               and p.y >= self.ymin and p.y <= self.ymax
 
-    def intersect(self, other):
+    def intersects(self, other):
         return self.xmax >= other.xmin and self.ymax >= other.ymin \
                and other.xmax >= self.xmin and other.ymax >= self.ymin
 
